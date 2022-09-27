@@ -17,6 +17,8 @@ insert into concepts values('Harivaratharaj','1223');
 insert into concepts values('suganth','1224');
 insert into concepts values('dinesh',1225);
 select*from concepts;
+----------
+-------
 create table concept (name varchar(50)foreign key references concepts,address varchar(50));/*add same variable in next table=primarykey variablename foreignkey references primarykeytablename;*/
 insert into concept values('Harivaratharaj','75/128,soudammen kovil,pn.palayam');/*possible to add one or more rows to same value in foreignkey=yes possible to add moretimes in same values that values are have in primary key in existing table*/
 insert into concept values('Harivaratharaj','coimbatore,tamilnadu');/*if any new values add in foreign key=NO cant add newvalues can add primarykey values only manytimes to add to rows;*/
