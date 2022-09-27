@@ -1,0 +1,40 @@
+create database syntax;/*creating a database=create database databasename*/
+use syntax;/*use the database=use databasename*/
+create table concepts (name varchar(50),serial_number int);/*creating a table=create table tablename(variables with datatype)*/
+insert into concepts values('Harivaratharaj','1223');/*insert the values=insert into tablename(values inside the single codes)*/
+insert into concepts values('suganth','1224');
+insert into concepts values('dinesh',1225);/*int values accept with,without single codes*/
+select*from concept;/*view the table=select*from tablename*/
+sp_rename 'concepts','concept';/*change the tablename=sp_rename 'oldtablename','newtablename'*//*sp==STORED PROCEDURE*/
+alter table concept add phonenumber varchar(10);/*To add additional column=alter table tablename add newcolumnname datatype()*/
+update concept set phonenumber='7871265187' where name='Harivaratharaj';/*add values in new column and where to add the values=update tablename set newcolumnname='values' where oldcolumnname='values'*/
+update concept set phonenumber='8667734052' where serial_number=1225;
+delete from concept where serial_number=1225;/*delete row=delete from tablename where columnname='values';*/
+truncate table  concept;/*clear all values in table=truncate table tablename;*/
+drop table concept;/*delete tablename in database=drop table tablename;*/
+create table concepts (name varchar(50)primary key,serial_number int)/*add primary key=variablename datatype+primary key*/
+insert into concepts values('Harivaratharaj','1223');
+insert into concepts values('suganth','1224');
+insert into concepts values('dinesh',1225);
+select*from concepts;
+create table concept (name varchar(50)foreign key references concepts,address varchar(50));/*add same variable in next table=primarykey variablename foreignkey references primarykeytablename;*/
+insert into concept values('Harivaratharaj','75/128,soudammen kovil,pn.palayam');/*possible to add one or more rows to same value in foreignkey=yes possible to add moretimes in same values that values are have in primary key in existing table*/
+insert into concept values('Harivaratharaj','coimbatore,tamilnadu');/*if any new values add in foreign key=NO cant add newvalues can add primarykey values only manytimes to add to rows;*/
+insert into concept values('dinesh','tamilnadu,india');
+update concept set name='suganth' where address='coimbatore,tamilnadu';/*if possible to change already added values=YES can add usimg update tablename set changesvariable='values' where variablename='values';*/
+select*from concepts;
+select*from concept;
+create table demo1 (name varchar(50)primary key,serial_number int)/*add primary key=variablename datatype+primary key*/
+insert into demo1 values('Harivaratharaj','');
+insert into demo1 values('suganth','');
+insert into demo1 values('dinesh','');
+select*from demo1;
+create table demo2 (name varchar(50)foreign key references demo1,serial_number int)/*add primary key=variablename datatype+primary key*/
+insert into demo2 values('Harivaratharaj','1');
+insert into demo2 values('suganth','2');
+insert into demo2 values('dinesh','3');
+drop table demo2;
+drop table concept;
+drop table concepts;
+select*from demo1;
+select*from demo2;
